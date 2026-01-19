@@ -12,5 +12,16 @@ books = [
 
 # Napiš program, který spočte celkový počet stran, které Gustav přečetl.
 # Připiš do programu výpočet počtu knih, kterým dal Gustav hodnocení alespoň 8.
+
+total_read = 0
+favorites = []
+
 for item in books:
-    print(item.keys())
+    total_read = total_read + item["pages"]
+    if item["rating"] >= 8:
+        favorites.append(item["title"])
+        
+
+print(f"Gustav has read {total_read} pages.")
+print(f"These are Gustav's favourite books: {favorites}")
+
