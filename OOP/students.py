@@ -6,10 +6,18 @@ class Student:
             raise ValueError("Invalid house")
         self.name = name
         self.house = house
+    
+    # Defining what the object will appear as when call onto as a string:
+    def __str__(self):
+        return f"a student {self.name} from {self.house}"
+    
+    def __repr__(self):
+        pass
+    
 
 def main():
     student = get_student()
-    print(f"{student.name} from {student.house}.")
+    print(student)
 
 def get_student():
     name = input("Name: ")
