@@ -1,9 +1,9 @@
 # # Simple example for division by zero
 
-# try: # Code that might fail
-#     x = 10 / 0
-# except: # Code that runs if an error happens
-#     print("Something went wrong!")
+try: # Code that might fail
+    x = 10 / 0
+except: # Code that runs if an error happens
+    print("Something went wrong!")
 
 # Write code for handling 3 simultaneous exceptions.
 
@@ -26,10 +26,10 @@ except ValueError:
 
 
 # Finally is a last step which happens always.
-# try:
-#     file = open("data.txt", "r")
-#     content = file.read()
-# except FileNotFoundError:
-#     print("File not found.")
-# finally:
-#     print("Closing file.")
+try:
+    file = open("data.txt", "r")
+    content = file.read()
+except FileNotFoundError:
+    print("File not found.")
+finally:
+    print("Closing file.")
