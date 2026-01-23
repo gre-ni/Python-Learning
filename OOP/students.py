@@ -11,11 +11,14 @@ class Student:
     def __str__(self):
         return f"a student {self.name} from {self.house}"
 
+    # Functions which are set to go through in any case when we get or set a variable:
+    
     # Getter:
     def house(self):
         return self.house
     
     # Setter: 
+    # This will be called whenever trying to access the student.house (aka self.house) attribute within object
     def house(self, house):
         if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
             raise ValueError("Invalid house")
