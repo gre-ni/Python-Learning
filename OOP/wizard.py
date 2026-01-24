@@ -4,15 +4,13 @@ class Wizard():
             raise ValueError("Missing name.")
         self.name = name
 
-
-class Student():
+class Student(Wizard):
     def __init__(self, name, house):
-        self.name = name
+        super().__init__(name) # Reference to super/parent class of this class + passing name
         self.house = house
 
-
-class Professor():
+class Professor(Wizard):
     def __init__(self, name, subject):
-        self.name = name
+        super().__init__(name)
         self.subject = subject
         

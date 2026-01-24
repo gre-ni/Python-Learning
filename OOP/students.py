@@ -12,7 +12,7 @@ class Student:
     def get(cls): # Reference to class itself via cls
         name = input("Name: ")
         house = input("House: ")
-        return cls(name, house) 
+        return cls(name, house) # Instantiating through using cls
     
     @property
     def name(self):
