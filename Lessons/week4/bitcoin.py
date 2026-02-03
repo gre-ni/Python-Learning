@@ -5,7 +5,7 @@ import sys
 # User provied command line argument - how many bitcoins we want calculated
 
 if len(sys.argv) != 2:
-    sys.exit("Missing command line argument")
+    sys.exit("Missing command line argument") 
 else:
     try:
         number_of_bitcoins = float(sys.argv[1])
@@ -20,7 +20,7 @@ try:
 except requests.RequestException:
     sys.exit("Invalid request")
 
-# print(json.dumps(response.json(), indent=2))
+# print(json.dumps(response.json(), indent=2)) - checking the formatting
 
 bitcoin_info = response.json()
 price = float(bitcoin_info["data"]["priceUsd"]) * number_of_bitcoins
