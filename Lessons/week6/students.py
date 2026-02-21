@@ -13,6 +13,6 @@ with open("students.csv") as file:
         students.append(student)
 
 # Sorting list of disctionaries by key:
-for student in sorted(students, key=lambda student: student["house"]): 
+for student in sorted(students, key=lambda student: student["name"]): 
     print(f"{student['name']} is in {student['house']}")
         
