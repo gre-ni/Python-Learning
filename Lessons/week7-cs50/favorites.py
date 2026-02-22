@@ -8,9 +8,10 @@ with open("favorites.csv", "r") as file:
     
     for row in reader:
         favorite = row["language"]
-        if favorite not in counts:
-            counts[favorite] = 0
-        counts[favorite] += 1
+        try: 
+            counts[favorite] += 1
+        except KeyError:
+            counts[favorite] = 1
 
 for favorite in counts:
     print(favorite, counts[favorite])
