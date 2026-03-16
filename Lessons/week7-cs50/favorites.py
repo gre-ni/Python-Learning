@@ -13,5 +13,5 @@ with open("favorites.csv", "r") as file:
         except KeyError:
             counts[favorite] = 1
 
-for favorite in counts:
+for favorite in sorted(counts, key=counts.get, reverse=True):
     print(favorite, counts[favorite])
