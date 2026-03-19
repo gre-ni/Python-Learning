@@ -2,7 +2,7 @@ from email_validation import validate_email
 import pytest
 
 
-supported_domains = [".edu",".com",".cz",".edu"]
+supported_domains = [".edu",".com",".cz",".eu"]
 
 # Missing values:
 def test_missing_at():

@@ -6,11 +6,9 @@ def main():
 
 
 def reformat_name(name: str) -> str:
-    matches = re.search(r"^(.+), ?(.+)$", name)
-
-    if matches:
-        last, first = matches.groups()
-        return f"{first} {last}"
+    # The walrus := operator is for when I want to simultaneously check the bool and assign value
+    if matches := re.search(r"^(.+), *(.+)$", name):
+        return f"{matches.group(2)} {matches.group(1)}"
 
 
 if __name__ == "__main__":
