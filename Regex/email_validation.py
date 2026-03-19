@@ -11,11 +11,8 @@ def main():
 
 
 def validate_email(email: str) -> bool:
-    # This search doesn't return bool, it returns matches, if checks truthiness
-    if re.search(r"^(\w+\.{1})?\w+@(\w+\.{1})?\w+\.(edu|com|cz|eu)$", email, re.IGNORECASE):
-        return True
-    else: 
-        return False
+    # search doesn't return bool, it returns matches, truthiness turned into boolean for return:
+    return bool(re.search(r"^(\w+\.{1})?\w+@(\w+\.{1})?\w+\.(edu|com|cz|eu)$", email, re.IGNORECASE))
     
 
 if __name__ == "__main__":
