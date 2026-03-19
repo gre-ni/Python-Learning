@@ -2,7 +2,7 @@ import re
 
 
 def main():
-    email = input("What's your email? ").strip().lower()
+    email = input("What's your email? ").strip()
     
     if validate_email(email):
         print("Valid Email")
@@ -11,7 +11,8 @@ def main():
 
 
 def validate_email(email: str) -> bool:
-    if re.search(r"^\w{1,}\.{0,1}\w{1,}@\w{2,}(\.edu|\.com|\.cz|\.eu)$", email):
+    # This search doesn't return bool, it returns matches, if checks truthiness
+    if re.search(r"^(\w+\.{1})?\w+@(\w+\.{1})?\w+\.(edu|com|cz|eu)$", email, re.IGNORECASE):
         return True
     else: 
         return False

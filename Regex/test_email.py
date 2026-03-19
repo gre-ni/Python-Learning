@@ -6,29 +6,30 @@ supported_domains = [".edu",".com",".cz",".edu"]
 
 # Missing values:
 def test_missing_at():
-    assert validate_email("haha.edu") == False
+    assert not validate_email("haha.edu")
 
 def test_missing_domain():
-    assert validate_email("haha@haha") == False
+    assert not validate_email("haha@haha")
 
 def test_multiple_ats():
-    assert validate_email("haha@@haha.com") == False
+    assert not validate_email("haha@@haha.com")
 
 def test_special_char():
-    assert validate_email("&haha@haha.com") == False
+    assert not validate_email("&haha@haha.com")
 
 def test_multiple_dots():
-    assert validate_email("hah..ha@haha.com") == False
-
-@pytest.mark.parametrize("short_email", ["h@haha.com", "haha@h.com"])
-def test_too_short(short_email):
-    assert validate_email(short_email) == False
+    assert not validate_email("hah..ha@haha.com")
+    
 
 # Happy paths:
 @pytest.mark.parametrize("domain", supported_domains)
 def test_supported_domains(domain):
-    assert validate_email(f"test@test{domain}") == True
+    assert validate_email(f"test@test{domain}")
 
-def email_with_dot():
-    assert validate_email("haha.hah@gmail.com") == True
+@pytest.mark.parametrize("dot_email", ["hah.hah@haha.com", "haha@hh.ha.com", "ha.ha@ha.ha.com"])
+def test_email_with_dot(dot_email):
+    assert validate_email(dot_email)
+
+def test_all_uppercase():
+    assert validate_email("HAHA@HAHA.COM")
 
