@@ -13,7 +13,7 @@ def extract_username_a(url: str) -> str | None:
 
 # Alternative which would return information about 
 def extract_username_b(url: str) -> str | None:
-    username = re.search(r"^(?:https?://)?(?:www\.)?twitter\.com/(\w+)/?$", url, re.IGNORECASE)
+    username = re.search(r"^(?:https?://)?(?:www\.)?twitter\.com/(\w+)/?", url, re.IGNORECASE)
     if username:
         return username.group(1)
     else: 
