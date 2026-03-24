@@ -6,7 +6,7 @@ def main():
 
 
 def validate_ip_address(input: str) -> bool:
-    return bool(re.search(r"^((\d|[1-9]\d|1\d\d|2[0-5][0-5])\.){3}(\d|[1-9]\d|1\d\d|2[0-5][0-5])$", input))
+    return bool(re.search(r"^((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])$", input))
 
 
 if __name__ == "__main__":

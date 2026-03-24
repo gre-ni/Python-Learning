@@ -3,7 +3,7 @@ from ip_format_check import validate_ip_address
 
 @pytest.mark.parametrize("address", ["1.2.3.4", "127.0.0.1", "255.255.255.255"])
 def test_valid_address(address):
-    assert(address)
+    assert validate_ip_address(address)
 
 @pytest.mark.parametrize("address", ["275.3.6.1", "512.512.512.512"])
 def test_too_high(address):

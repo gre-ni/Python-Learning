@@ -11,7 +11,7 @@ def main():
 # 9 AM to 5:00 PM
 
 def convert(s):
-    if match := re.search(r"(?:(\d[0-2]?):?([0-5]\d)?) ?([AP]M) to (?:(\d[0-2]?):?([0-5]\d)?) ([AP]M)", s):
+    if match := re.fullmatch(r"(?:(\d[0-2]?):?([0-5]\d)?) ?([AP]M) to (?:(\d[0-2]?):?([0-5]\d)?) ([AP]M)", s):
 
         time_from_hours = match.group(1)
         time_from_mins = match.group(2) or "00"
@@ -37,9 +37,6 @@ def convert(s):
             
     else:
         raise ValueError
-
-
-...
 
 
 if __name__ == "__main__":

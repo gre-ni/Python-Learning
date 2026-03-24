@@ -11,7 +11,7 @@ def test_alternative_time():
 def test_no_convert():
     assert convert("7:00 AM to 9:00 AM") == "7:00 to 9:00"
 
-@pytest.mark.parametrize("wrong_format", ["5 to 6 PM", "12-14", "12 AM-2 PM"])
+@pytest.mark.parametrize("wrong_format", ["5 to 6 PM", "12-14", "12 AM-2 PM", "10:66 AM to 11 PM"])
 def test_wrong_format(wrong_format):
     with pytest.raises(ValueError):
         convert(wrong_format)
