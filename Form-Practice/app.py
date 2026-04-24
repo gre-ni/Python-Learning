@@ -15,7 +15,17 @@ def index():
 	
 @app.route("/register", methods=["POST"])
 def register():
-    # In case user didn't submit anything or value is not valid:
-    if not request.form.get("name") or request.form.get("sport") not in SPORTS:
-        return render_template("failure.html")        
+
+    # Validate name
+    name = request.form.get("name")
+    if not name:
+        return render_template("error.html", message="Missing name")
+    
+    # Validate sport
+    sport = request.form.get("sport")
+    if not sport:
+        return render_template("error.html", message="Missing sport")
+    elif sport not in SPORTS:
+        return render_template("error.html", message="Sport unavailable")
+
     return render_template("success.html")
